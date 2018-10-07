@@ -4,10 +4,19 @@
   */
  
 //define your token
-define("TOKEN", "ÕâÀïÐ´ÄãµÄtoken");
+define("TOKEN", "123456");
 $wechatObj = new wechatCallbackapiTest();
+if($_GET["echostr"])
+{
 $wechatObj->valid();
- 
+}
+else
+{
+	$wechatObj->valid();
+}
+else{
+	$wechatObj->responseMsg();
+}
 class wechatCallbackapiTest
 {
 	public function valid()
