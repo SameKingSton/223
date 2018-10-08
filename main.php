@@ -59,9 +59,12 @@ class wechatCallbackapiTest
                 	$contentStr = "Welcome to wechat world!";
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
-                }else{
-                	echo "Input something...";
-                }
+                }else if($msgType=="image"){
+					
+                	echo "你发了张图片...";
+                }else {
+					echo "```````"
+				}
  
         }else {
         	echo "";
