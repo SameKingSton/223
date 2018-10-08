@@ -44,8 +44,11 @@ class wechatCallbackapiTest
                 $fromUsername = $postObj->FromUserName;
                 $toUsername = $postObj->ToUserName;
                 $keyword = trim($postObj->Content);
-                $time = time();
+				$Event=trim($postObj->Event);
 				$MsgType=postObj->MsgType;
+                $time = time();
+				
+				
                 $textTpl = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
 							<FromUserName><![CDATA[%s]]></FromUserName>
@@ -61,7 +64,6 @@ class wechatCallbackapiTest
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
                 }*/if ($MsgType=="image"){
-					
                 	$msgType = "text";
                 	$contentStr = "image";
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
