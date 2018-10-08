@@ -45,6 +45,7 @@ class wechatCallbackapiTest
                 $toUsername = $postObj->ToUserName;
                 $keyword = trim($postObj->Content);
                 $time = time();
+				$MsgType=postObj->MsgType;
                 $textTpl = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
 							<FromUserName><![CDATA[%s]]></FromUserName>
@@ -53,17 +54,20 @@ class wechatCallbackapiTest
 							<Content><![CDATA[%s]]></Content>
 							<FuncFlag>0</FuncFlag>
 							</xml>";             
-				if(!empty( $keyword ))
+				/*if(!empty( $keyword ))
                 {
               		$msgType = "text";
                 	$contentStr = "Welcome to wechat world!";
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
-                }else if($msgType=="image"){
+                }*/if ($msgType=="image"){
 					
-                	echo "你发了张图片...";
+                	$msgType = "text";
+                	$contentStr = "image";
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	echo $resultStr;
                 }else {
-					echo "```````"
+					echo ""
 				}
  
         }else {
