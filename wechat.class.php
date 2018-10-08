@@ -5,42 +5,42 @@
  *  @link https://github.com/dodgepudding/wechat-php-sdk
  *  @version 1.2
  *  usage:
- *   $options = array(
- *			'token'=>'tokenaccesskey', //填写你设定的key
- *			'encodingaeskey'=>'encodingaeskey', //填写加密用的EncodingAESKey
- *			'appid'=>'wxdk1234567890', //填写高级调用功能的app id
- *			'appsecret'=>'xxxxxxxxxxxxxxxxxxx' //填写高级调用功能的密钥
- *		);
- *	 $weObj = new Wechat($options);
- *   $weObj->valid();
- *   $type = $weObj->getRev()->getRevType();
- *   switch($type) {
- *   		case Wechat::MSGTYPE_TEXT:
- *   			$weObj->text("hello, I'm wechat")->reply();
- *   			exit;
- *   			break;
- *   		case Wechat::MSGTYPE_EVENT:
- *   			....
- *   			break;
- *   		case Wechat::MSGTYPE_IMAGE:
- *   			...
- *   			break;
- *   		default:
- *   			$weObj->text("help info")->reply();
- *   }
- *
- *   //获取菜单操作:
- *   $menu = $weObj->getMenu();
- *   //设置菜单
- *   $newmenu =  array(
- *   		"button"=>
- *   			array(
- *   				array('type'=>'click','name'=>'最新消息','key'=>'MENU_KEY_NEWS'),
- *   				array('type'=>'view','name'=>'我要搜索','url'=>'http://www.baidu.com'),
- *   				)
- *  		);
- *   $result = $weObj->createMenu($newmenu);
- */
+ **/
+    $options = array(
+ 			'token'=>'123456', //填写你设定的key
+ 			'encodingaeskey'=>'s2NIuLt6HXhEumQDkSz3jmlRasbuU342DaL412Bua0b', //填写加密用的EncodingAESKey
+ 			'appid'=>'wx8a773e5fc50e9b12', //填写高级调用功能的app id
+ 			'appsecret'=>'967257815b304b139b5024c2269293ec' //填写高级调用功能的密钥
+ 		);
+ 	 $weObj = new Wechat($options);
+    $weObj->valid();
+    $type = $weObj->getRev()->getRevType();
+    switch($type) {
+    		case Wechat::MSGTYPE_TEXT:
+    			$weObj->text("hello, I'm wechat")->reply();
+    			exit;
+    			break;
+    		case Wechat::MSGTYPE_EVENT:
+ 
+    			break;
+   		case Wechat::MSGTYPE_IMAGE:
+
+    			break;
+    		default:
+    			$weObj->text("help info")->reply();
+    }
+
+    $menu = $weObj->getMenu();
+
+    $newmenu =  array(
+    		"button"=>
+    			array(
+   				array('type'=>'click','name'=>'最新消息','key'=>'MENU_KEY_NEWS'),
+    				array('type'=>'view','name'=>'我要搜索','url'=>'http://www.baidu.com'),
+    				)
+   		);
+   $result = $weObj->createMenu($newmenu);
+ 
 class Wechat
 {
 	const MSGTYPE_TEXT = 'text';
